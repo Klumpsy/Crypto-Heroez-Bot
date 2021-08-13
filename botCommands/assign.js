@@ -1,10 +1,12 @@
 const fetch = require("node-fetch");
 
 const legendaryHero = "875723439367917599";
-const epicHero = 875723598944403507; 
+const epicHero = "875723598944403507"; 
 const rareHero = "875723543650910239";
 
 module.exports = async function(message, args) { 
+    const list = guilds.get("875356593229795329");
+    list.members.fetch().then(members => console.log(members))
         if (args.length > 0) { 
             policyId = args.join(" ");
         };
