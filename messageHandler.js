@@ -1,9 +1,10 @@
 //Import required files and modules
 const helloBot = require("./botCommands/helloBot.js"); 
 const verify = require("./botCommands/verify.js"); 
+const assign = require("./botCommands/assign.js");
 
 //bot message lookup object 
-const botCommands = {helloBot, verify};
+const botCommands = {helloBot, verify, assign};
 
 //botmessage function for replying on userinput
 module.exports = async function (message) { 
