@@ -7,11 +7,17 @@ module.exports = async function(message, args) {
         };
  //Crypto Heroez API checking if token is real
     const heroezApi = `https://cryptoheroez.io/api/policy/${policyId}`; 
-    let response = await fetch(heroezApi); 
-    let json = await response.json(); 
-    if(json.valid) { 
-        message.channel.send(`Name: ${json.title}, your Crypto hero is the real deal!`);
-    } else { 
-        message.channel.send("BEEP BEEP !!!NOT A REAL HERO!!! BEEP BEEP");
+    try { 
+        let response = await fetch(heroezApi); 
+        let json = await response.json();
+        if(json.valid) { 
+            message.channel.send(`Name: ${json.title}, your Crypto hero is the real deal!`);
+        } else { 
+            message.channel.send("BEEP BEEP !!!NOT A REAL HERO!!! BEEP BEEP");
+        }  
     }
+    catch {  
+     message.author.send("Are you sure that is a valid? BEEP BEEP :face_with_spiral_eyes:")    
+    };
+    policyId = ""; //remove policy ID so !verify won't return a value;
 };
