@@ -1,5 +1,4 @@
 const http = require('http');
-const { stringify } = require('querystring');
 const { clearScreenDown } = require('readline');
 
 //Array that contains rarity objects with messages, serverID and priority + error 
@@ -125,10 +124,10 @@ module.exports =  function(message, args)
                     else 
                     { 
                         message.member.roles.set([cardRanking[highestRank].serverId]);
-                        message.author.send(cardRanking[highestRank].message);
-                    }
-                        
-        });            
+                        message.author.send(cardRanking[highestRank].message); 
+                        highestRank = 0; 
+                    }              
+        });                             
     };
 
     let req = http.request(options, callback); 
