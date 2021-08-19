@@ -141,7 +141,16 @@ module.exports = async function(message, args)
                             resetWalletAndRank();                  
             });                            
         };
-    let req = http.request(options, callback); 
-    req.end();    
+        try 
+        {
+            let req = http.request(options, callback); 
+            req.end();
+        }
+
+        catch 
+        { 
+            message.author.send("BEEP BEEP, Wrong adress or command... Use the !help command to check the botcommands :face_with_spiral_eyes:");
+        }    
 }; 
+
 
