@@ -149,7 +149,7 @@ module.exports = async function(message, args)
 
         catch 
         { 
-            message.author.send("BEEP BEEP, Wrong adress or command... Use the !help command to check the botcommands :face_with_spiral_eyes:");
+            message.author.send("BEEP BEEP, wrong adress or command... Use the !help command to check the botcommands :face_with_spiral_eyes:");
         }    
 }; 
 
